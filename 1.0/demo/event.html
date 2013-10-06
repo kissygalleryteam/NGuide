@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>KISSY新人引导组件-皮肤</title>
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<style>
+	.span12 {padding-top: 40px;}
+	.NG-Guide .NG-btn {margin-left: 5px;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1 class="page-header">组件皮肤</h1>
+		<div class="span12">
+			点击下面的按钮，将会为引导层设置相应的皮肤，皮肤取值从左往右依次为cyan, green, blue, orange, red, custom<br>其中最后一个custom在demo中将恢复组件默认样式，同时给引导层添加名为NG-Skin-{placement}-custom的class<br>户可以在自己的css文件中，使用该class作为样式前缀，覆盖引导层内部元素默认样式，达到自定义皮肤的目的<br>组件文档及更多demo请见：<a href="http://gallery.kissyui.com/NGuide/1.0/guide/index.html" target="_blank">KISSY新人引导组件</a>
+		</div>
+		<div class="span12">
+			<input type="button" class="btn btn-primary" value="BootStrap青">
+			<input type="button" class="btn btn-success" value="BootStrap绿">
+			<input type="button" class="btn btn-info" value="BootStrap蓝">
+			<input type="button" class="btn btn-warning" value="BootStrap橙">
+			<input type="button" class="btn btn-danger" value="BootStrap红">
+			<input type="button" class="btn btn-custom" value="自定义">
+		</div>
+		<div class="span12">
+			<h2>样式的设置方式</h2>
+			<ul>
+				<li>1、用户可以在初始化组件的时候，通过skin参数指定皮肤</li>
+				<li>2、用户也可以初始化完成后，通过实例的setSkin(skin)方法来设置皮肤</li>
+			</ul>
+		</div>
+	</div>
+<script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy-min.js"></script>
+<script>
+    var S = KISSY;
+    S.Config.debug = true;
+    if (S.Config.debug) {
+        var srcPath = "../../../";
+        S.config({
+            packages:[
+                {
+                    name:"gallery",
+                    path:srcPath,
+                    charset:"utf-8",
+                    ignorePackageNameInUri:true
+                }
+            ]
+        });
+    }
+
+    S.use('gallery/NGuide/1.0/index,gallery/NGuide/1.0/index.css', function (S, NGuide) {
+         var ng = new NGuide({
+            id: "ng-event",
+            skin: "red",
+            auto: true,
+            trigger: ".NG-Start", //auto为false时，点击该节点触发引导
+            steps: [
+                {
+                    target: ".btn-primary",
+                    placement: "right", //top、right、bottom
+                    title: "主题风格-BootStrap青",
+                    content: "单击此按钮将为引导层设置【青色】皮肤。",
+                    offsetY: -49,
+                    arrowOffset: "39%"
+                },
+                {
+                    target: ".btn-success",
+                    placement: "bottom",
+                    title: "主题风格-BootStrap绿",
+                    content: "单击此按钮将为引导层设置【绿色】皮肤。",
+                    arrowOffset: "39%",
+                    offsetX: -75
+                },
+                {
+                    target: ".btn-info",
+                    placement: "top",
+                    title: "主题风格-BootStrap蓝",
+                    content: "单击此按钮将为引导层设置【蓝色】皮肤。",
+                    arrowOffset: "39%",
+                    offsetX: -75
+                },
+                {
+                    target: ".btn-warning",
+                    placement: "left",
+                    title: "主题风格-BootStrap橙",
+                    content: "单击此按钮将为引导层设置【橙色】皮肤。",
+                    arrowOffset: "39%",
+                    offsetY: -49
+                },
+                {
+                    target: ".btn-danger",
+                    placement: "left",
+                    title: "主题风格-BootStrap红",
+                    content: "单击此按钮将为引导层设置【红色】皮肤。",
+                    arrowOffset: "39%",
+                    offsetY: -49
+                },
+                {
+                    target: ".btn-custom",
+                    placement: "right",
+                    title: "主题风格-自定义",
+                    content: "单击此按钮将为引导层设置【NG-Skin-custom】Class，皮肤样式，用户可自定义。",
+                    arrowOffset: "40%",
+                    offsetY: -57
+                }
+            ]
+        });
+		var skins = ["cyan", "green", "blue", "orange", "red", "custom"];
+		S.all(".btn").each(function(n, i){
+			n.on("click", function(e){
+				ng.gotoStep(i + 1);
+				ng.setSkin(skins[i]);
+			});
+		});
+        ng.on("stepChange", function(e){
+            var step = ng.getStep();
+            if (step === 1) {
+                alert("引导功能启动，请点击\"下一个\"，查看其他说明\n也可以点击\"跳过\"，直接销毁引导功能");
+            } else if (step === ng.steps.length) {
+                alert("这已经是最后一步了，请点击\"完成\"，销毁引导\n也可以点击\"上一个\"，回顾其他内容");
+            }
+        });
+    });
+</script>
+</body>
+</html>

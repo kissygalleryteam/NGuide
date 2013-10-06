@@ -120,6 +120,12 @@
                 }
             ]
          });
+        ng.on("stepChange", function(e){
+            var step = ng.getStep();
+            if (step === 2) {
+                alert("这是事件测试，只有引导至第二步的时候会触发");
+            }
+        });
     })
 </script>
 </body>

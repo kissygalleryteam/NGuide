@@ -252,6 +252,7 @@ KISSY.add('gallery/NGuide/1.0/index',function (S, Node, Base, Xtpl, Offline) {
             self._scrollWindow(dest, step, function(){
                 self.ng.animate(dest, 0.5, "easeOut", function(){
                     //console.log("done");
+                    self.fire("stepChange");
                 });
             });
         },
@@ -345,6 +346,11 @@ KISSY.add('gallery/NGuide/1.0/index',function (S, Node, Base, Xtpl, Offline) {
             var self = this;
             // self.offline.clear();
             self.offline.removeItem(self.stateId);
+        },
+        getStep: function() {
+            var self = this;
+            var step = self.offline.getItem(self.stateId);
+            return (step && step.split(":")[1]) ? parseInt(step.split(":")[1]) : -1;
         }
     }, {ATTRS : /** @lends NGuide*/{
 

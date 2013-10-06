@@ -5,6 +5,7 @@
 * 多步引导demo：[http://gallery.kissyui.com/NGuide/1.0/demo/index.html](http://gallery.kissyui.com/NGuide/1.0/demo/index.html)
 * 单步引导demo：[http://gallery.kissyui.com/NGuide/1.0/demo/single.html](http://gallery.kissyui.com/NGuide/1.0/demo/single.html)
 * 皮肤设置demo：[http://gallery.kissyui.com/NGuide/1.0/demo/skin.html](http://gallery.kissyui.com/NGuide/1.0/demo/skin.html)
+* 演示stepChange事件：[http://gallery.kissyui.com/NGuide/1.0/demo/event.html](http://gallery.kissyui.com/NGuide/1.0/demo/event.html)
 
 ## 组件说明
 
@@ -14,10 +15,11 @@
 
 ## 组件方法
 
-* `hide`：暂时隐藏引导层，刷新后再次出现。
-* `reset`：当引导功能被销毁后，调用此方法重启。
+* `hide()`：暂时隐藏引导层，刷新后再次出现。
+* `reset()`：当引导功能被销毁后，调用此方法重启。
 * `gotoStep(step)`：切换至第step步引导
-* `setSkin(skin)`：为引导层设置名称为skin的皮肤，skin可取值为`cyan`、`green`、`blue`、`orange`、`red`、`custom`
+* `setSkin(skin)`：为引导层设置名称为skin的皮肤，skin可取值为`cyan`、`green`、`blue`、`orange`、`red`、`cusstom`
+* `getStep()`：获取当前引导至第几步，返回整数；若获取失败，返回-1
 
 ## 参数说明
 
@@ -35,6 +37,21 @@
     - @property offsetY{Number} 引导层垂直偏移量
     - @property arrowOffset{Number} 引导层指向箭头的偏移位置，默认为15
     - @property width{Number} 引导层宽度（不包括padding），默认320
+
+## 事件
+
+* `stepChange`：当引导步骤切换完成时触发，用法如下：
+
+    ```
+    ng.on("stepChange", function(e){
+        var step = ng.getStep();
+        if (step === 1) {
+            alert("引导功能启动，请点击\"下一个\"，查看其他说明\n也可以点击\"跳过\"，直接销毁引导功能");
+        } else if (step === ng.steps.length) {
+            alert("这已经是最后一步了，请点击\"完成\"，销毁引导\n也可以点击\"上一个\"，回顾其他内容");
+        }
+    });    
+    ```
 
 ## 使用方法
 
@@ -153,6 +170,11 @@ S.use('gallery/NGuide/1.0/index,gallery/NGuide/1.0/index.css', function (S, NGui
 感谢@阿大 提供[hopscotch](http://linkedin.github.io/hopscotch/)做参考，感谢@伯方 offline组件支持，感谢强大的kissy团队。
 
 ## changelog
+
+### 2013-10-05 添加事件
+
+- 添加stepChange事件，在引导步骤切换完成后触发
+- 新增getStep()方法，用于获取当前引导至第几步
 
 ### 2013-09-26 皮肤升级
 
