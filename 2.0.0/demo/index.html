@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>KISSY新人指南插件</title>
+    <style>
+    .ng-first {
+        width: 200px;
+        height: 2.0.0px;
+        background-color: #eee;
+    }
+    .ng-second {
+        position: absolute;
+        right: 30px;
+        top: 420px;
+        width: 2.0.0px;
+        height: 2.0.0px;
+        background-color: #39f;
+    }
+    .ng-third {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -200px;
+        width: 400px;
+        height: 50px;
+        text-align: center;
+        background-color: #ccc;
+    }
+    .ng-fourth {
+        position: absolute;
+        top: 2.0.00px;
+        left: 50%;
+        margin-left: -200px;
+        width: 400px;
+        height: 60px;
+        text-align: center;
+        background-color: #f50;
+    }
+    </style>
+    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy-min.js" charset="utf-8"></script>
+<script>var S = KISSY;S.config({packages:[{name:"kg",path:"http://g.tbcdn.cn/kg/",charset:"utf-8",ignorePackageNameInUri:true}]});if (S.Config.debug){var srcPath = "../";S.config({packages:[{name:"kg/nguide/2.0.0",path:srcPath,charset:"utf-8",ignorePackageNameInUri:true}]});}</script></head>
+<body>
+<h2>KISSY新人指南插件</h2>
+<input type="button" class="NG-reset" value="重置">
+
+<div class="ng-first">
+    我是ng-first对应的节点。
+</div>
+<div class="ng-second">
+    我是ng-second对应的节点，我在右边，但我希望我的提示信息在左边。
+</div>
+<div class="ng-third">
+    我是ng-third对应的节点，我在上边，但我希望我的提示信息在下边。
+</div>
+<div class="ng-fourth">
+    我是ng-fourth对应的节点，我在下边，但我希望我的提示信息在上边。
+</div>
+
+<script>
+    var S = KISSY;
+    S.Config.debug = true;
+    if (S.Config.debug) {
+        var srcPath = "../../../";
+        S.config({
+            packages:[
+                {
+                    name:"gallery-back",
+                    path:srcPath,
+                    charset:"utf-8",
+                    ignorePackageNameInUri:true
+                }
+            ]
+        });
+    }
+
+    S.use('kg/NGuide/2.0.0/index,kg/NGuide/2.0.0/index.css', function (S, NGuide) {
+        S.one(".NG-reset").on("click", function(){
+            ng.reset();
+            window.location.reload();
+        });
+         var ng = new NGuide({
+            id: "ng-index",
+            auto: true,
+            trigger: ".NG-Start", //auto为false时，点击该节点触发引导
+            steps: [
+                {
+                    target: ".ng-first",
+                    placement: "right", //top、right、bottom
+                    title: "新人引导第一步",
+                    content: "这里是头部，演示demo的第一部分",
+                    offsetX: 10,
+                    offsetY: -40,
+                    arrowOffset: 60,
+                    width: 250
+                },
+                {
+                    target: ".ng-second",
+                    placement: "left",
+                    title: "新人引导第二步",
+                    content: "This is the second part of the guide.",
+                    arrowOffset: 20
+                },
+                {
+                    target: ".ng-third",
+                    placement: "bottom",
+                    title: "新人引导第三步",
+                    content: "新人引导第三步，前端技能之熟练使用kissy，熟悉前端开发三要素：结构、表现、行为。",
+                    arrowOffset: "50%",
+                    width: 400
+                },
+                {
+                    target: ".ng-fourth",
+                    placement: "top",
+                    title: "新人引导第四步",
+                    content: "新人引导第四步，前端深入学习，代码优化，性能提升，编写属于自己的库，玩转前端开发。",
+                    offsetY: 20,
+                    arrowOffset: "48%",
+                    width: 400
+                }
+            ]
+         });
+        ng.on("stepChange", function(e){
+            var step = ng.getStep();
+            if (step === 2) {
+                alert("这是事件测试，只有引导至第二步的时候会触发");
+            }
+        });
+    })
+</script>
+</body>
+</html>

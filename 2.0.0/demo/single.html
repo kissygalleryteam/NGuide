@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>KISSY新人指南插件</title>
+    <style>
+    .ng-first {
+        width: 200px;
+        height: 2.0.0px;
+        background-color: #eee;
+    }
+    .ng-second {
+        position: absolute;
+        right: 30px;
+        top: 420px;
+        width: 2.0.0px;
+        height: 2.0.0px;
+        background-color: #39f;
+    }
+    .ng-third {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -200px;
+        width: 400px;
+        height: 50px;
+        text-align: center;
+        background-color: #ccc;
+    }
+    .ng-fourth {
+        position: absolute;
+        top: 2.0.00px;
+        left: 50%;
+        margin-left: -200px;
+        width: 400px;
+        height: 60px;
+        text-align: center;
+        background-color: #f50;
+    }
+    </style>
+    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy-min.js" charset="utf-8"></script>
+</head>
+<body>
+<h2>KISSY新人指南插件</h2>
+<input type="button" class="NG-reset" value="重置">
+
+<div class="ng-first">
+    我是ng-first对应的节点。
+</div>
+<div class="ng-second">
+    我是ng-second对应的节点，我没有引导层。
+</div>
+<div class="ng-third">
+    我是ng-third对应的节点，我没有引导层。
+</div>
+<div class="ng-fourth">
+    我是ng-fourth对应的节点，我没有引导层。
+</div>
+
+<script>
+    var S = KISSY;
+    S.Config.debug = true;
+    if (S.Config.debug) {
+        var srcPath = "../../../";
+        S.config({
+            packages:[
+                {
+                    name:"kg",
+                    path:srcPath,
+                    charset:"utf-8",
+                    ignorePackageNameInUri:true
+                }
+            ]
+        });
+    }
+
+    S.use('kg/NGuide/2.0.0/index,kg/NGuide/2.0.0/index.css', function (S, NGuide) {
+        S.one(".NG-reset").on("click", function(){
+            ng.reset();
+            window.location.reload();
+        });
+         var ng = new NGuide({
+            id: "ng-single",
+            auto: true,
+            trigger: ".NG-Start", //auto为false时，点击该节点触发引导
+            steps: [
+                {
+                    target: ".ng-first",
+                    placement: "right", //top、right、bottom
+                    title: "我是该页面的引导员",
+                    content: "整个页面只有一次引导，所以没有‘上一步’、‘下一步’、‘跳过’，看完我的内容，引导就结束了哦！^_^",
+                    offsetX: 10,
+                    offsetY: -30,
+                    arrowOffset: 50,
+                    width: 300
+                }
+            ]
+         });
+    })
+</script>
+</body>
+</html>

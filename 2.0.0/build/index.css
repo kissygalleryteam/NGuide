@@ -1,0 +1,391 @@
+h2 {
+	margin: 0;
+	padding: 0;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+	display: table;
+	content: "";
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.NG-Guide {
+	/*display: none;*/
+	position: absolute;
+	padding: 10px;
+	border: 5px solid rgba(0, 0, 0, 0.5);
+	border: 5px solid #888\9;
+	width: 320px;
+	font: 12px/1.5 tahoma,"microsoft yahei","\5FAE\8F6F\96C5\9ED1";
+	background-color: #fff;
+	opacity: 0;
+	filter: Alpha(opacity=0);
+}
+
+.NG-Guide .NG-stepNumber,
+.NG-Guide .NG-Guide-Close {
+	background: url(http://www.seejs.com/wp-content/uploads/2013/09/nguide-skin.png) -999em -999em no-repeat;
+	_background: url(http://www.seejs.com/wp-content/uploads/2013/09/nguide-skin8.png) -999em -999em no-repeat;
+}
+
+/* 默认 left */
+.NG-Guide .NG-Arrow {
+	position: absolute;
+	left: auto;
+	right: -20px;
+	top: 10px;
+	width: 15px;
+	height: 30px;
+	/*overflow: hidden;*/
+}
+
+.NG-Guide .NG-Arrow .border-arrow {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+	border-right: 0;
+	border-left: 15px solid #fff;
+	border-bottom: 15px dashed transparent;
+	border-top: 15px dashed transparent;
+}
+
+.NG-Guide .NG-Arrow .border-arrow-up {
+	left: auto;
+	right: 6px;
+	top: 0;
+}
+
+.NG-Guide .NG-Arrow .border-arrow-down {
+	border-left-color: rgba(0, 0, 0, 0.5);
+	border-left-color: #888\9;
+}
+
+/* right */
+.NG-Guide-right .NG-Arrow {
+	position: absolute;
+	left: -20px;
+	top: 10px;
+	width: 15px;
+	height: 30px;
+	/*overflow: hidden;*/
+}
+
+.NG-Guide-right .NG-Arrow .border-arrow {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+	border-left: 0;
+	border-right: 15px solid #fff;
+	border-bottom: 15px dashed transparent;
+	border-top: 15px dashed transparent;
+}
+
+.NG-Guide-right .NG-Arrow .border-arrow-up {
+	left: 6px;
+	top: 0;
+}
+
+.NG-Guide-right .NG-Arrow .border-arrow-down {
+	border-right-color: rgba(0, 0, 0, 0.5);
+	border-right-color: #888\9;
+}
+
+/* bottom */
+.NG-Guide-bottom .NG-Arrow {
+	position: absolute;
+	left: 10px;
+	right: auto;
+	top: -20px;
+	width: 30px;
+	height: 15px;
+	/*overflow: hidden;*/
+}
+
+.NG-Guide-bottom .NG-Arrow .border-arrow {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+	border-top: 0;
+	border-bottom: 15px solid #fff;
+	border-left: 15px dashed transparent;
+	border-right: 15px dashed transparent;
+}
+
+.NG-Guide-bottom .NG-Arrow .border-arrow-up {
+	left: 0;
+	right: 0;
+	top: 6px;
+}
+
+.NG-Guide-bottom .NG-Arrow .border-arrow-down {
+	border-bottom-color: rgba(0, 0, 0, 0.5);
+	border-bottom-color: #888\9;
+}
+
+/* top */
+.NG-Guide-top .NG-Arrow {
+	position: absolute;
+	left: 10px;
+	right: auto;
+	top: auto;
+	bottom: -20px;
+	width: 30px;
+	height: 15px;
+	/*overflow: hidden;*/
+}
+
+.NG-Guide-top .NG-Arrow .border-arrow {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+	border-bottom: 0;
+	border-top: 15px solid #fff;
+	border-left: 15px dashed transparent;
+	border-right: 15px dashed transparent;
+}
+
+.NG-Guide-top .NG-Arrow .border-arrow-up {
+	left: 0;
+	right: 0;
+	top: auto;
+	bottom: 6px;
+}
+
+.NG-Guide-top .NG-Arrow .border-arrow-down {
+	border-top-color: rgba(0, 0, 0, 0.5);
+	border-top-color: #888\9;
+}
+
+.NG-Guide .NG-stepNumber {
+	float: left;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 18px;
+	text-align: center;
+	color: #fff;
+	/*background-color: #39f;*/
+	background-position: 0 0;
+}
+
+.NG-Guide .NG-body {
+	margin-left: 40px;
+	padding-right: 10px;
+}
+
+.NG-Guide .NG-body .NG-Guide-title {
+	margin-bottom: 5px;
+	font-size: 18px;
+	color: #333;
+}
+
+.NG-Guide .NG-body .NG-Guide-content {
+	color: #666;
+}
+
+.NG-Guide .NG-Content .NG-Guide-Actions {
+	margin-top: 15px;
+	padding-right: 10px;
+	text-align: right;
+}
+
+.NG-Guide .NG-Guide-Close {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 24px;
+	height: 24px;
+	background-position: -192px -92px;
+	overflow: hidden;
+}
+
+/* skin's start */
+/* cyan start */
+.NG-Skin-right-cyan,
+.NG-Skin-left-cyan,
+.NG-Skin-top-cyan,
+.NG-Skin-bottom-cyan {
+	border-color: #428bca;
+}
+
+.NG-Skin-right-cyan .NG-stepNumber,
+.NG-Skin-left-cyan .NG-stepNumber,
+.NG-Skin-top-cyan .NG-stepNumber,
+.NG-Skin-bottom-cyan .NG-stepNumber {
+	background-position: 0 -40px;
+}
+
+.NG-Skin-right-cyan .NG-Arrow .border-arrow-down {
+	border-right-color: #428bca;
+}
+
+.NG-Skin-left-cyan .NG-Arrow .border-arrow-down {
+	border-left-color: #428bca;
+}
+
+.NG-Skin-top-cyan .NG-Arrow .border-arrow-down {
+	border-top-color: #428bca;
+}
+
+.NG-Skin-bottom-cyan .NG-Arrow .border-arrow-down {
+	border-bottom-color: #428bca;
+}
+/* cyan end */
+
+/* green start */
+.NG-Skin-right-green,
+.NG-Skin-left-green,
+.NG-Skin-top-green,
+.NG-Skin-bottom-green {
+	border-color: #5cb85c;
+}
+
+.NG-Skin-right-green .NG-stepNumber,
+.NG-Skin-left-green .NG-stepNumber,
+.NG-Skin-top-green .NG-stepNumber,
+.NG-Skin-bottom-green .NG-stepNumber {
+	background-position: 0 -80px;
+}
+
+.NG-Skin-right-green .NG-Arrow .border-arrow-down {
+	border-right-color: #5cb85c;
+}
+
+.NG-Skin-left-green .NG-Arrow .border-arrow-down {
+	border-left-color: #5cb85c;
+}
+
+.NG-Skin-top-green .NG-Arrow .border-arrow-down {
+	border-top-color: #5cb85c;
+}
+
+.NG-Skin-bottom-green .NG-Arrow .border-arrow-down {
+	border-bottom-color: #5cb85c;
+}
+/* green end */
+
+/* blue start */
+.NG-Skin-right-blue,
+.NG-Skin-left-blue,
+.NG-Skin-top-blue,
+.NG-Skin-bottom-blue {
+	border-color: #5bc0de;
+}
+
+.NG-Skin-right-blue .NG-stepNumber,
+.NG-Skin-left-blue .NG-stepNumber,
+.NG-Skin-top-blue .NG-stepNumber,
+.NG-Skin-bottom-blue .NG-stepNumber {
+	background-position: 0 -120px;
+}
+
+.NG-Skin-right-blue .NG-Arrow .border-arrow-down {
+	border-right-color: #5bc0de;
+}
+
+.NG-Skin-left-blue .NG-Arrow .border-arrow-down {
+	border-left-color: #5bc0de;
+}
+
+.NG-Skin-top-blue .NG-Arrow .border-arrow-down {
+	border-top-color: #5bc0de;
+}
+
+.NG-Skin-bottom-blue .NG-Arrow .border-arrow-down {
+	border-bottom-color: #5bc0de;
+}
+/* blue end */
+
+/* orange start */
+.NG-Skin-right-orange,
+.NG-Skin-left-orange,
+.NG-Skin-top-orange,
+.NG-Skin-bottom-orange {
+	border-color: #f0ad4e;
+}
+
+.NG-Skin-right-orange .NG-stepNumber,
+.NG-Skin-left-orange .NG-stepNumber,
+.NG-Skin-top-orange .NG-stepNumber,
+.NG-Skin-bottom-orange .NG-stepNumber {
+	background-position: -40px 0;
+}
+
+.NG-Skin-right-orange .NG-Arrow .border-arrow-down {
+	border-right-color: #f0ad4e;
+}
+
+.NG-Skin-left-orange .NG-Arrow .border-arrow-down {
+	border-left-color: #f0ad4e;
+}
+
+.NG-Skin-top-orange .NG-Arrow .border-arrow-down {
+	border-top-color: #f0ad4e;
+}
+
+.NG-Skin-bottom-orange .NG-Arrow .border-arrow-down {
+	border-bottom-color: #f0ad4e;
+}
+/* orange end */
+
+/* red start */
+.NG-Skin-right-red,
+.NG-Skin-left-red,
+.NG-Skin-top-red,
+.NG-Skin-bottom-red {
+	border-color: #d9534f;
+}
+
+.NG-Skin-right-red .NG-stepNumber,
+.NG-Skin-left-red .NG-stepNumber,
+.NG-Skin-top-red .NG-stepNumber,
+.NG-Skin-bottom-red .NG-stepNumber {
+	background-position: -40px -40px;
+}
+
+.NG-Skin-right-red .NG-Arrow .border-arrow-down {
+	border-right-color: #d9534f;
+}
+
+.NG-Skin-left-red .NG-Arrow .border-arrow-down {
+	border-left-color: #d9534f;
+}
+
+.NG-Skin-top-red .NG-Arrow .border-arrow-down {
+	border-top-color: #d9534f;
+}
+
+.NG-Skin-bottom-red .NG-Arrow .border-arrow-down {
+	border-bottom-color: #d9534f;
+}
+/* red end */
+
+
